@@ -48,7 +48,13 @@ const projects = [
 
       <section className="hero" id="home">
         <h1>Hi, I'm Nathaniel Ashiedu</h1>
-        <p>A 2nd year IT student building real-world software projects.</p>
+        <p>I am an IT professional currently pursuing further studies at Kwame Nkrumah University of Science and Technology (KNUST), with over 5 years of hands-on experience in networking, enterprise security systems, and infrastructure deployment — gained through practical trade training and professional field work.
+
+Currently serving as Team Lead at Wilctech IT Solutions, I specialize in designing, installing, and maintaining CCTV systems, access control, fiber optic networks, and structured cabling for corporate and institutional clients.
+
+I am actively developing expertise in cybersecurity and cloud technologies. My hands-on practice includes network analysis with Wireshark and Nmap, firewall configuration, virtual lab environments (VMware, Proxmox, pfSense), and cloud infrastructure on AWS.
+
+My long-term goal is to build a career in cybersecurity and cloud security engineering.</p>
       </section>
 
       <section className="projects" id="projects">
