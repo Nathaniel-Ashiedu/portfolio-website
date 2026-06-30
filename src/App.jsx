@@ -1,18 +1,26 @@
 import './App.css';
 function App() {
-  const projects = [
-    {
-      title: "LAN Chat Application",
-      description: "A real-time chat app built with Python sockets and tkinter, allowing multiple users to message each other over a local network.",
-      tech: "Python, Sockets, Threading, Tkinter",
-    },
-    {
-      title: "2D Platformer Game",
-      description: "A side-scrolling platformer with gravity, jumping, collision detection, and a timer, built using Pygame.",
-      tech: "Python, Pygame",
-    },
-  ];
-
+const projects = [
+  {
+    title: "LAN Chat Application",
+    description: "A real-time chat app built with Python sockets and tkinter, allowing multiple users to message each other over a local network.",
+    tech: "Python, Sockets, Threading, Tkinter",
+    githubLink: "https://github.com/Nathaniel-Ashiedu/lan-chat-app",
+  },
+  {
+    title: "2D Platformer Game",
+    description: "A side-scrolling platformer with gravity, jumping, collision detection, and a timer, built using Pygame.",
+    tech: "Python, Pygame",
+    githubLink: "https://github.com/Nathaniel-Ashiedu/platformer-game",
+  },
+  {
+    title: "To-Do REST API",
+    description: "A backend API for managing to-do items with full CRUD functionality, built with FastAPI and a SQLite database. Includes interactive auto-generated documentation.",
+    tech: "Python, FastAPI, SQLAlchemy, SQLite",
+    githubLink: "https://github.com/Nathaniel-Ashiedu/todo-api",
+    liveLink: "https://todo-api-zegq.onrender.com/docs",
+  },
+];
   const blogPosts = [
     {
       title: "Building My First LAN Chat App",
@@ -51,6 +59,16 @@ function App() {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <span className="tech">{project.tech}</span>
+              <div className="project-links">
+                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+                {project.liveLink && (
+                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                    Live Demo
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
