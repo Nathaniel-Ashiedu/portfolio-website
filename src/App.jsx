@@ -81,8 +81,49 @@ function App() {
       </nav>
 
       <section className="hero" id="home">
-        <h1>Hi, I'm Nathaniel Ashiedu</h1>
-        <p>A 2nd year IT student building real-world software projects.</p>
+        <p className="hero-label">IT Technician & Team Lead · KNUST</p>
+        <h1>Nathaniel Ashiedu</h1>
+        <p className="hero-sub">
+          5+ years deploying networks, security systems, and cloud infrastructure —
+          now building software to deepen that foundation.
+        </p>
+        <div className="hero-badges">
+          <span>CFOT Certified</span>
+          <span>CCNA</span>
+          <span>AWS</span>
+          <span>Accra, Ghana</span>
+        </div>
+      </section>
+
+      <section className="about" id="about">
+        <div className="about-inner">
+          <h2>About</h2>
+          <p>
+            I'm an IT professional currently pursuing a Diploma in Information Technology
+            at Kwame Nkrumah University of Science and Technology (KNUST). I have over
+            5 years of hands-on experience in networking, enterprise security systems,
+            and infrastructure deployment gained through practical trade training and
+            professional field work.
+          </p>
+          <p>
+            As Team Lead at Wilctech IT Solutions, I specialize in designing, installing,
+            and maintaining CCTV systems, access control, fiber optic networks, and
+            structured cabling for corporate and institutional clients. I've deployed
+            Starlink in remote areas, mounted masts and radio antennas for wide-range
+            connectivity, and set up ICT centres in communities with no prior internet
+            access.
+          </p>
+          <p>
+            My long-term goal is to build a career in cybersecurity and cloud security
+            engineering — combining my infrastructure experience with modern software
+            development.
+          </p>
+          <div className="about-meta">
+            <div><span>Role</span>IT Technician & Team Lead, Wilctech IT Solutions</div>
+            <div><span>Study</span>Diploma in IT, KNUST (2025)</div>
+            <div><span>Location</span>Accra, Ghana</div>
+          </div>
+        </div>
       </section>
 
       <section className="projects" id="projects">
