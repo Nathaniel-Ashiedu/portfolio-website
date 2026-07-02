@@ -27,7 +27,15 @@ function App() {
       tech: "React Native · Expo · AsyncStorage",
       githubLink: "https://github.com/Nathaniel-Ashiedu/habit-tracker",
     },
+    {
+      title: "Network Intrusion Detection System",
+      description: "A Python-based NIDS that captures live network packets and detects port scans, SYN floods, ICMP floods, and ARP spoofing in real time, with a live Flask web dashboard.",
+      tech: "Python · Scapy · Flask · SQLite · Chart.js",
+      githubLink: "https://github.com/Nathaniel-Ashiedu/nids",
+    },
   ];
+
+  
 
   const skills = [
     {
@@ -63,6 +71,11 @@ function App() {
       title: "From Field Technician to Software Developer",
       date: "June 2026",
       summary: "Reflecting on 5 years of deploying infrastructure in the field, and how hands-on networking experience shapes the way I think about software.",
+    },
+    {
+      title: "Building a Network Intrusion Detection System",
+      date: "July 2026",
+      summary: "How I built a live NIDS using Scapy that detects real port scans, SYN floods, and ARP spoofing — and what I found when I turned it on for the first time and saw 17 real alerts from external IPs within minutes.",
     },
   ];
 
