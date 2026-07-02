@@ -56,28 +56,44 @@ function App() {
     },
   ];
 
-  const blogPosts = [
-    {
-      title: "Building My First LAN Chat App",
-      date: "June 2026",
-      summary: "What I learned building a real-time chat app using Python sockets, including a debugging story about threading and misidentified terminal windows.",
-    },
-    {
-      title: "Gravity, Jumping, and Game Loops in Pygame",
-      date: "June 2026",
-      summary: "How I built a 2D platformer from scratch and learned the basics of game physics, collision detection, and frame-rate control.",
-    },
-    {
-      title: "From Field Technician to Software Developer",
-      date: "June 2026",
-      summary: "Reflecting on 5 years of deploying infrastructure in the field, and how hands-on networking experience shapes the way I think about software.",
-    },
-    {
-      title: "Building a Network Intrusion Detection System",
-      date: "July 2026",
-      summary: "How I built a live NIDS using Scapy that detects real port scans, SYN floods, and ARP spoofing — and what I found when I turned it on for the first time and saw 17 real alerts from external IPs within minutes.",
-    },
-  ];
+const blogPosts = [
+  {
+    title: "Building My First LAN Chat App",
+    date: "June 2025",
+    summary: "What I learned building a real-time chat app using Python sockets — how threading lets a server handle multiple clients simultaneously, and a debugging story about staring at the wrong terminal for ten minutes.",
+    body: "I built this project to understand how real-time communication works at the network level. Using Python's socket library, I created a server that listens for incoming TCP connections and broadcasts messages to all connected clients simultaneously — the same core mechanism behind apps like WhatsApp and Slack, just without the polish.\n\nThe trickiest part was threading. Without it, the server could only talk to one client at a time. Adding threads meant each client got its own dedicated process running in parallel, which is how the server handles multiple people chatting at once.\n\nThe most memorable debugging moment: I spent ten minutes convinced messages weren't broadcasting, only to realize I was watching the wrong terminal. The messages were showing up perfectly on the other client the whole time."
+  },
+  {
+    title: "Gravity, Jumping, and Game Loops in Pygame",
+    date: "January 2026",
+    summary: "How I built a 2D platformer from scratch and learned that gravity is just adding a small number to velocity every frame.",
+    body: "Before this project, game physics felt like magic. After building it, I realized gravity is surprisingly simple: every frame, you add a small constant to the player's downward velocity. The player accelerates naturally, just like real physics, because velocity compounds over time.\n\nThe game loop was the other key concept. Unlike a regular program that runs once and exits, a game loop runs 60 times per second — checking for input, updating positions, detecting collisions, and redrawing the screen every single frame. Getting that loop right made everything else fall into place.\n\nThe hardest bug I hit was a completely black screen with no error message. The cause turned out to be a missing display.flip() call — without it, nothing ever actually renders to the screen. Completely silent failure, completely obvious in hindsight."
+  },
+  {
+    title: "From Field Technician to Software Developer",
+    date: "February 2026",
+    summary: "Five years of pulling cable and configuring switches taught me how networks actually behave. Here's how that shapes the way I think about software.",
+    body: "Most developers learn networking from textbooks. I learned it by pulling fiber optic cable through buildings, configuring switches on-site, and diagnosing why a CCTV system stopped working at 2am. That kind of experience gives you a different mental model — one built on what actually breaks in the real world, not just what the RFC says should happen.\n\nWhen I started building software, I noticed I thought about failure differently. I always ask: what happens when the network drops? What if two packets arrive out of order? What if the server restarts mid-request? Field work trains you to think in failure modes.\n\nMy goal is to move into cybersecurity and cloud security engineering — a direction that feels natural given my background. The infrastructure knowledge is already there. The software skills are what I'm building now."
+  },
+  {
+    title: "Building a REST API with FastAPI and SQLite",
+    date: "April 2026",
+    summary: "How I built a full CRUD backend with auto-generated interactive documentation, and what I learned about Python version compatibility.",
+    body: "FastAPI was a revelation after building things with plain Python. You define your endpoints with simple decorators, describe your data with Pydantic models, and FastAPI automatically generates an interactive documentation page where anyone can test your API directly in the browser — no Postman required.\n\nThe CRUD pattern (Create, Read, Update, Delete) clicked for me during this project. Once I understood that almost every database-backed application is just these four operations in different combinations, I started seeing the same structure everywhere — in the chat app's message history, in the habit tracker's storage, in every web app I'd ever used.\n\nThe unexpected lesson came before I even started: pip tried to compile pygame from source on Python 3.14 and failed with a cryptic error. I learned that being on the bleeding edge of a language version means some libraries haven't caught up yet — and that virtual environments with specific Python versions are essential, not optional."
+  },
+  {
+    title: "Building a Habit Tracker in React Native",
+    date: "May 2026",
+    summary: "My first mobile app — what surprised me most was how similar React Native feels to React, and how different debugging is on a physical device.",
+    body: "Coming from React, React Native felt immediately familiar — same component model, same hooks, same state management patterns. The main mental shift is the rendering layer: instead of HTML divs and paragraphs, you use View and Text components, and instead of CSS files, you write StyleSheet objects in JavaScript.\n\nThe streak logic was the most interesting problem to solve. A habit tracker isn't just a checklist — it needs to remember when you last completed something, compare that to yesterday's date, and decide whether your streak continues or resets. Getting the date comparison right across midnight boundaries required careful thinking about what 'yesterday' actually means in code.\n\nTesting on a real Android device via Expo Go was a different experience from browser-based debugging. Hot reload worked well, but some errors only appeared on the physical device and not in the simulator, which taught me to always test on real hardware before calling something done."
+  },
+  {
+    title: "Building a Network Intrusion Detection System",
+    date: "July 2026",
+    summary: "How I built a live NIDS using Scapy that detects real attacks — and what happened when I turned it on for the first time.",
+    body: "The idea behind a NIDS is straightforward: sit on the network, watch every packet that goes by, and raise an alarm when something looks suspicious. The implementation is where it gets interesting. Scapy gives you access to raw network packets in Python, which means you can inspect every layer — IP headers, TCP flags, ARP replies — and write detection logic in plain code.\n\nI implemented four detection types: port scans (one IP hitting many ports quickly), SYN floods (overwhelming a server with connection requests), ICMP floods (ping attacks), and ARP spoofing (a man-in-the-middle technique where an attacker poisons the ARP table to intercept traffic).\n\nThe moment I turned it on for the first time, it immediately logged 17 alerts — all port scans from external IPs probing my machine. I hadn't done anything to trigger them. That's just the internet: automated scanners constantly sweep IP ranges looking for open ports and vulnerable services. Seeing that in real time, on my own network, made the threat landscape feel very concrete."
+  },
+];
 
   return (
     <div className="app">
@@ -184,7 +200,10 @@ function App() {
             <div className="blog-post" key={index}>
               <h3>{post.title}</h3>
               <span className="date">{post.date}</span>
-              <p>{post.summary}</p>
+              <p className="summary">{post.summary}</p>
+              {post.body.split('\n\n').map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
             </div>
           ))}
         </div>
