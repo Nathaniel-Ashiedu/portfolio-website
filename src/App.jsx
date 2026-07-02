@@ -4,7 +4,7 @@ function App() {
   const projects = [
     {
       title: "LAN Chat Application",
-      description: "A real-time chat app built with Python sockets and tkinter, allowing multiple users to message each other over a local network.",
+      description: "A real-time chat app built with Python sockets and tkinter, allowing multiple users to message each other over a local network. Successfully tested across Windows and Ubuntu on a real Wi-Fi network.",
       tech: "Python · Sockets · Threading · Tkinter",
       githubLink: "https://github.com/Nathaniel-Ashiedu/lan-chat-app",
     },
